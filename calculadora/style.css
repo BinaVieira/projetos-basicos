@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0; 
+    font-family: Arial, sans-serif;
+}
+
+.calculadora {
+    background-color: #2b2b2b; 
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 2px 5px rgba(255, 255, 255, 0.1);
+    width: 320px;
+    border: 2px solid #1a1a1a;
+}
+
+.display {
+    background-color: #d4f5f2; 
+    color: #111;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 2.5rem; 
+    height: 90px;     
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;      
+    padding: 0 20px;   
+    text-align: right;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid #111;
+    overflow: hidden;
+    letter-spacing: 2px;
+}
+
+.calculadora-btn {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.calculadora-btn button {
+    background-color: #333333;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 15px 0;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #111, 0 5px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.1s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Efeito de clique (Afundar o botão) */
+.calculadora-btn button:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 #111, 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Botão de Adição */
+.calculadora-btn button:last-child {
+    background-color: #e60000;
+    box-shadow: 0 4px 0 #990000, 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.calculadora-btn button:last-child:active {
+    box-shadow: 0 0 0 #990000, 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Ajustes para os textos dos botões de operação */
+.calculadora-btn button#operadorDivisao,
+.calculadora-btn button#operadorMultiplicacao,
+.calculadora-btn button#operadorSubtracao {
+    font-size: 1.8rem; 
+}

@@ -1,38 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="calculadora">
-        <div class="display" id="display"></div>
+    <main class="calculadora">
+        <div class="display" id="display" aria-live="polite" aria-label="Resultado da calculadora">0</div>
+
         <div class="calculadora-btn">
-            <button id="limparDisplay">CE</button>
-            <button id="limparCalculo">C</button>
-            <button id="backspace">⌫</button>
-            <button id="operadorDivisao">/</button>
-            <button id="tecla7">7</button>
-            <button id="tecla8">8</button>
-            <button id="tecla9">9</button>
-            <button id="operadorMultiplicacao">*</button>
-            <button id="tecla4">4</button>
-            <button id="tecla5">5</button>
-            <button id="tecla6">6</button>
-            <button id="operadorSubtracao">-</button>
-            <button id="tecla1">1</button>
-            <button id="tecla2">2</button>
-            <button id="tecla3">3</button>
-            <button id="operadorAdicao">+</button>
-            <button id="inverter">±</button>
-            <button id="tecla0">0</button>
-            <button id="decimal">,</button>
-            <button id="igual">=</button>
+            <button type="button" id="limparDisplay" aria-label="Limpar entrada atual">CE</button>
+            <button type="button" id="limparCalculo" aria-label="Limpar todo o cálculo">C</button>
+            <button type="button" id="backspace" aria-label="Apagar último caractere">⌫</button>
+            <button type="button" id="operadorDivisao" aria-label="Dividir">/</button>
+
+            <button type="button" id="tecla7">7</button>
+            <button type="button" id="tecla8">8</button>
+            <button type="button" id="tecla9">9</button>
+            <button type="button" id="operadorMultiplicacao" aria-label="Multiplicar">*</button>
+
+            <button type="button" id="tecla4">4</button>
+            <button type="button" id="tecla5">5</button>
+            <button type="button" id="tecla6">6</button>
+            <button type="button" id="operadorSubtracao" aria-label="Subtrair">-</button>
+
+            <button type="button" id="tecla1">1</button>
+            <button type="button" id="tecla2">2</button>
+            <button type="button" id="tecla3">3</button>
+            <button type="button" id="operadorAdicao" aria-label="Somar">+</button>
+
+            <button type="button" id="inverter" aria-label="Inverter sinal de positivo ou negativo">±</button>
+            <button type="button" id="tecla0">0</button>
+            <button type="button" id="decimal" aria-label="Vírgula decimal">,</button>
+            <button type="button" id="igual" aria-label="Calcular resultado">=</button>
         </div>
-    </div>
-    
+    </main>
+
     <script src="calculadora.js"></script>
 </body>
 </html>

@@ -1,9 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+:root {
+    --bg-body: #f0f0f0;
+    --bg-calculadora: #2b2b2b;
+    --border-calculadora: #1a1a1a;
+    
+    --bg-display: #d4f5f2;
+    --cor-display-texto: #111111;
+    
+    --bg-btn: #333333;
+    --cor-btn-texto: #ffffff;
+    --sombra-btn: #111111;
+    
+    --bg-btn-igual: #e60000;
+    --sombra-btn-igual: #990000;
+    
+    --font-display: 'Share Tech Mono', monospace;
+    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
 }
 
 body {
@@ -11,35 +32,37 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0; 
-    font-family: Arial, sans-serif;
+    background-color: var(--bg-body);
+    font-family: var(--font-sans);
 }
 
 .calculadora {
-    background-color: #2b2b2b; 
+    background-color: var(--bg-calculadora);
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 2px 5px rgba(255, 255, 255, 0.1);
     width: 320px;
-    border: 2px solid #1a1a1a;
+    max-width: 90vw;
+    border: 2px solid var(--border-calculadora);
 }
 
 .display {
-    background-color: #d4f5f2; 
-    color: #111;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 2.5rem; 
-    height: 90px;     
+    background-color: var(--bg-display);
+    color: var(--cor-display-texto);
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    height: 90px;
     display: flex;
-    justify-content: flex-end; 
-    align-items: center;      
-    padding: 0 20px;   
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
     text-align: right;
     border-radius: 10px;
     margin-bottom: 20px;
     box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
-    border: 2px solid #111;
+    border: 2px solid var(--cor-display-texto);
     overflow: hidden;
+    word-break: break-all;
     letter-spacing: 2px;
 }
 
@@ -50,40 +73,45 @@ body {
 }
 
 .calculadora-btn button {
-    background-color: #333333;
-    color: #ffffff;
+    background-color: var(--bg-btn);
+    color: var(--cor-btn-texto);
     border: none;
     border-radius: 10px;
     font-size: 1.5rem;
     font-weight: bold;
     padding: 15px 0;
     cursor: pointer;
-    box-shadow: 0 4px 0 #111, 0 5px 10px rgba(0, 0, 0, 0.3);
-    transition: all 0.1s ease;
+    box-shadow: 0 4px 0 var(--sombra-btn), 0 5px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
     display: flex;
     justify-content: center;
     align-items: center;
+    outline: none;
+    user-select: none;
 }
 
-/* Efeito de clique (Afundar o botão) */
+.calculadora-btn button:focus-visible {
+    outline: 3px solid #f7c948;
+    outline-offset: 2px;
+}
+
 .calculadora-btn button:active {
     transform: translateY(4px);
-    box-shadow: 0 0 0 #111, 0 2px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0 var(--sombra-btn), 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* Botão de Adição */
-.calculadora-btn button:last-child {
-    background-color: #e60000;
-    box-shadow: 0 4px 0 #990000, 0 5px 10px rgba(0, 0, 0, 0.3);
+.calculadora-btn button#igual {
+    background-color: var(--bg-btn-igual);
+    box-shadow: 0 4px 0 var(--sombra-btn-igual), 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
-.calculadora-btn button:last-child:active {
-    box-shadow: 0 0 0 #990000, 0 2px 5px rgba(0, 0, 0, 0.3);
+.calculadora-btn button#igual:active {
+    box-shadow: 0 0 0 var(--sombra-btn-igual), 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* Ajustes para os textos dos botões de operação */
 .calculadora-btn button#operadorDivisao,
 .calculadora-btn button#operadorMultiplicacao,
-.calculadora-btn button#operadorSubtracao {
-    font-size: 1.8rem; 
+.calculadora-btn button#operadorSubtracao,
+.calculadora-btn button#operadorAdicao {
+    font-size: 1.8rem;
 }

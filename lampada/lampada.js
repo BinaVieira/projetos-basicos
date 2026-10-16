@@ -2,20 +2,41 @@ const btnLigar = document.getElementById('btnLigar');
 const btnDesligar = document.getElementById('btnDesligar');
 const lampada = document.getElementById('lampada');
 
-btnLigar.addEventListener('click', () => {
-    lampada.classList.add('ligada')
-});
-
-btnDesligar.addEventListener('click', () => {
-    lampada.classList.remove('ligada')
-});
-
-
-lampada.addEventListener('click', () => {
-if (lampada.classList.contains('quebrada')){
-     lampada.classList.remove('quebrada');
-} else{
-    lampada.classList.add('quebrada');
+function estaQuebrada() {
+    return lampada?.classList.contains('quebrada');
 }
+
+function ligarLampada() {
+    if (!estaQuebrada()) {
+        lampada?.classList.add('ligada');
+    }
+}
+
+function desligarLampada() {
+    if (!estaQuebrada()) {
+        lampada?.classList.remove('ligada');
+    }
+}
+
+function quebrarLampada() {
+    lampada?.classList.toggle('quebrada');
+    
+    if (estaQuebrada()) {
+        lampada.classList.remove('ligada');
+        lampada.setAttribute('aria-label', 'Lâmpada quebrada');
+    } else {
+        lampada.setAttribute('aria-label', 'Lâmpada restaurada. Clique para quebrar.');
+    }
+}
+
+lampada.addEventListener('click', quebrarLampada);
+
+//acionamento via teclado (Enter ou Espaço)
+lampada.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+        quebrarLampada();
+    }
 });
 
+btnLigar.addEventListener('click', ligarLampada);
+btnDesligar.addEventListener('click', desligarLampada);
